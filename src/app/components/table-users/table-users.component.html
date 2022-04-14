@@ -1,0 +1,57 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre de usuario </th>
+        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Dirección </th>
+        <td mat-cell *matCellDef="let element"> 
+            Ciudad: {{element.address.city}} 
+            <br>
+            Calle: {{element.address.street}}, {{element.address.suite}}
+            <br>
+            Código postal: {{element.address.zipcode}}
+            <br>
+            Latitud: {{element.address.geo.lat}}
+            <br>
+            Longitud: {{element.address.geo.lng}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Teléfono </th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="website">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Sitio Web </th>
+        <td mat-cell *matCellDef="let element"> {{element.website}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="company">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Compañia </th>
+        <td mat-cell *matCellDef="let element"> {{element.company.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="posts">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Publicaciones </th>
+        <td mat-cell *matCellDef="let element"> {{element.company.name}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
