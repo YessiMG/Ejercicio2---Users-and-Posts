@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -10,18 +11,23 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class TableUsersComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'username', 'email', 'address', 'phone', 'website', 'company'];
+  displayedColumns: string[] = ['name', 'username', 'email', 'address', 'phone', 'website', 'company', 'posts'];
   dataSource = new MatTableDataSource<User>();
 
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadData();
   }
 
   async loadData() {
-    const data = await this.usersService.getAll().toPromise();
-    this.dataSource = new MatTableDataSource<User>(data);
+    const users = await this.usersService.getAllWithPosts();
+    this.dataSource = new MatTableDataSource<User>(users);
+    console.log(this.dataSource);
+  }
+
+  moreInfoPost(id: number){
+    this.router.navigate(['/post', id]);
   }
 
 }

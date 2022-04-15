@@ -1,5 +1,6 @@
 import { Address } from "./address";
 import { Company } from "./company";
+import { Post } from "./post";
 
 export interface User {
     id: number;
@@ -10,4 +11,5 @@ export interface User {
     phone: string;
     website: string;
     company: Company;
+    posts: Post[];
 }

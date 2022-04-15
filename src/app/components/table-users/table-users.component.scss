@@ -1,0 +1,26 @@
+.content-table {
+    margin: 20px;
+}
+
+.button-more {
+    width: 30px;
+    height: 30px;
+    mat-icon {
+        position: relative;
+        top: -5px;
+    }
+}
+
+th{
+    color: #3f51b5;
+    font-size: initial;
+}
+
+td {
+    border: solid 1px;
+    border-color: rgba(0,0,0,.12);
+}
+
+.td-items {
+    border: 0px;
+}
