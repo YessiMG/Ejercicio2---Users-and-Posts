@@ -14,7 +14,7 @@
       <ng-container matColumnDef="more">
         <th mat-header-cell *matHeaderCellDef> +Info </th>
         <td mat-cell *matCellDef="let element">
-            <button mat-mini-fab color="primary" aria-label="Más información" (click)="moreInfoPost(element.id)">
+            <button mat-mini-fab color="primary" aria-label="Más información" class="button-more" (click)="moreInfoPost(element.id)">
                 <mat-icon>arrow_forward</mat-icon>
             </button>
         </td>

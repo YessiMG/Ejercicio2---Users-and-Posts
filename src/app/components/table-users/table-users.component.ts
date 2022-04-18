@@ -23,7 +23,6 @@ export class TableUsersComponent implements OnInit {
   async loadData() {
     const users = await this.usersService.getAllWithPosts();
     this.dataSource = new MatTableDataSource<User>(users);
-    console.log(this.dataSource);
   }
 
   moreInfoPost(id: number){

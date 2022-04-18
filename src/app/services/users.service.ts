@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { lastValueFrom, Observable } from 'rxjs';
+import { lastValueFrom } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Post } from '../models/post';
 import { User } from '../models/user';
 import { PostsService } from './posts.service';
@@ -10,10 +11,12 @@ import { PostsService } from './posts.service';
 })
 export class UsersService {
 
+  private readonly endpoint = `${environment.urlApi}/users`;
+
   constructor(private http: HttpClient, private postsService: PostsService) { }
 
   getAll(): Promise<User[]> {
-    return lastValueFrom(this.http.get<User[]>('https://jsonplaceholder.typicode.com/users'));
+    return lastValueFrom(this.http.get<User[]>(this.endpoint));
   }
 
   private mergeUsersWithPosts(users: User[] | undefined, posts: Post[] | undefined): User[] | undefined {

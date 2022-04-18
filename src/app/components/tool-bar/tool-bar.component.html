@@ -1,17 +1,12 @@
 <mat-toolbar>
-    <span>Blog</span>
+    <span routerLink="home" class="title">Blog</span>
     <span class="spacer"></span>
-    <button mat-raised-button color="primary" *ngIf="newPosts == false" (click)="seePosts()">Ver Publicaciones</button>
+    <button mat-raised-button routerLinkActive="active" color="primary" *ngIf="newPosts == false" routerLink="posts">Ver Publicaciones</button>
     <span class="spacer"></span>
-    <button mat-raised-button color="primary" *ngIf="newPosts == false" (click)="seeUsers()">Ver Usuarios</button>
+    <button mat-raised-button routerLinkActive="active" color="primary" *ngIf="newPosts == false" routerLink="users">Ver Usuarios</button>
     <span class="spacer"></span>
     <button mat-raised-button color="primary" *ngIf="newPosts == false" (click)="newPost()">Nueva Publicación</button>
     <button mat-raised-button color="primary" *ngIf="newPosts == true" (click)="cancelPost()">Cancelar Publicación</button>
   </mat-toolbar>
 
   <app-new-post *ngIf="newPosts == true"></app-new-post>
-
-<div class="content-table">
-    <app-table-posts *ngIf="seePost"></app-table-posts>
-    <app-table-users *ngIf="!seePost"></app-table-users>
-</div>
